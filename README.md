@@ -1,83 +1,170 @@
-# Pearl Guide — Sri Lanka Travel Platform (Ceylon Curated)
+# Pearl Guide — Discover the Wonder of Sri Lanka 🇱🇰
 
-A premium, modern, and immersive web application for discovering Sri Lanka, generating AI-powered itineraries, and booking certified travel services.
+**Pearl Guide** is a modern travel web application designed to help travelers discover Sri Lanka, explore destinations, plan personalized journeys, and discover travel experiences through a user-friendly interface.
 
----
+The project aims to bring Sri Lanka's natural beauty, cultural heritage, wildlife, and travel experiences together in one digital platform.
 
-## 🎨 Mandatory Brand Palette & Design Tokens
+## ✨ Features
 
-| Brand Color | Hex Code | Purpose & Semantic Role |
+- **Explore Destinations** — Discover Sri Lankan destinations through search, filters, and destination details.
+- **Destination Details** — View destination information, highlights, travel tips, and relevant imagery.
+- **AI Trip Planner Interface** — Customize travel preferences and explore day-by-day itinerary suggestions.
+- **Travel Services** — Browse travel experiences and services such as transportation, train journeys, safaris, and wellness retreats.
+- **User Authentication Interface** — Login and registration interface with demo account options, where configured.
+- **User Dashboard** — View trip-related information and saved destinations.
+- **My Trips** — Manage itinerary information and bookmarked destinations.
+- **Booking Interface** — Review selected services and enter booking details through a checkout interface.
+- **Admin Dashboard Interface** — Explore destination management and booking-related dashboard features.
+- **Responsive UI** — Designed to provide a user-friendly experience across different screen sizes.
+
+> **Development status:** Features such as authentication, AI itinerary generation, booking management, and payment processing may require backend or third-party integrations. Refer to the actual implementation before treating them as production-ready services.
+
+## 🎨 Brand Identity
+
+Pearl Guide uses an ocean-inspired color palette that reflects the natural beauty of Sri Lanka.
+
+| Color | Hex Code | Purpose |
 |---|---|---|
-| **Deep Ocean** | `#005070` | Primary brand identity, dark headers, high-contrast headings, solid backgrounds |
-| **Ocean Teal** | `#00909A` | Secondary actions, active states, navigational highlights, interactive buttons |
-| **Tropical Aqua** | `#00C8C0` | Glowing badges, accent highlights, map coordinates, subtle illuminated borders |
-| **Coral Energy** | `#FF6B54` | Primary high-intent Calls to Action (Book Tour, Plan Journey), alert badges |
-| **Warm Sand** | `#F8D898` | Star ratings, warm tags, subtle section dividers with `#005070` text contrast |
-| **Seafoam Mist** | `#E8F8F6` | Light background surfaces, card containers, subtle alternating sections |
+| Deep Ocean | `#005070` | Primary brand color |
+| Ocean Teal | `#00909A` | Interactive elements |
+| Tropical Aqua | `#00C8C0` | Accent highlights |
+| Coral Energy | `#FF6B54` | Call-to-action accents |
+| Warm Sand | `#F8D898` | Warm highlights |
+| Seafoam Mist | `#E8F8F6` | Light backgrounds |
 
----
+## 🛠️ Technology Stack
 
-## 🏗️ Architecture & Structure
+### Frontend
+- React.js
+- Vite
+- JavaScript
+- Tailwind CSS
+- React Router
+- Lucide Icons
 
-```
+### Backend
+- Node.js
+- Express.js
+- MongoDB / Mongoose (for database integration, where configured)
+- JWT and bcrypt (for authentication, where implemented)
+
+## 📁 Project Structure
+
+```text
 pearl_guide/
-├── client/                     # React 18 + Vite + Tailwind CSS + Lucide Icons + React Router
-│   ├── public/                 # Static assets, SVG favicon
+├── client/
+│   ├── public/
 │   ├── src/
-│   │   ├── components/         # Reusable UI system (Button, Badge, Modal, Navbar, Footer, DestinationCard)
-│   │   ├── context/            # AuthContext (Traveler/Admin), SavedTripsContext, ToastContext
-│   │   ├── data/               # Curated Sri Lankan destinations & services dataset
-│   │   ├── pages/              # 10 core pages (Home, Explore, Details, AI Planner, Services, Auth, Dashboard, My Trips, Checkout, Admin)
-│   │   ├── styles/             # Tailwind directives & CSS transforms
-│   │   ├── App.jsx             # Top-level routing & scroll restoration
-│   │   └── main.jsx            # React root with providers
-│   ├── index.html              # Modern typography (Plus Jakarta Sans & Playfair Display)
-│   ├── tailwind.config.js      # Custom theme tokens & shadow utilities
-│   └── vite.config.js          # Vite config
-│
-├── server/                     # Node.js + Express.js Backend Skeleton (Ready for Phase 2)
-│   ├── server.js               # Express application entry point
-│   ├── package.json            # Server dependencies (Express, Mongoose, JWT, bcrypt, cors)
-│   └── .env.example            # Environment variables template
-│
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── data/
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── server/
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
+├── .gitignore
+├── package-lock.json
 └── README.md
 ```
 
----
+## 🚀 Getting Started
 
-## 🚀 Running the Project Locally
+### Prerequisites
 
-### 1. Frontend Development Server
+Make sure you have installed:
+
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/naushithennakoon14-bit/pearl_guide.git
+cd pearl_guide
+```
+
+### 2. Install Frontend Dependencies
+
 ```bash
 cd client
+npm install
+```
+
+### 3. Start the Frontend
+
+```bash
 npm run dev
 ```
-Open **[http://localhost:5173](http://localhost:5173)** in your browser.
 
-### 2. Frontend Production Build
+Open the local URL displayed in your terminal, usually:
+
+`http://localhost:5173`
+
+### 4. Build for Production
+
+From the `client` directory, run:
+
 ```bash
-cd client
 npm run build
 ```
 
-### 3. Backend API (Prepared for Phase 2)
+The production build will be generated in the `client/dist` directory.
+
+### 5. Run the Backend (If Configured)
+
+Open another terminal and run:
+
 ```bash
 cd server
 npm install
 npm run dev
 ```
-Running on port `5000` (health check at `http://localhost:5000/api/health`).
+
+Check `server/package.json` for the available scripts. If the development script is not configured, use the script that is actually defined there.
+
+Configure environment variables using `server/.env.example` if required. Never commit real credentials, API keys, or database connection strings.
+
+## 🗺️ Project Goals
+
+Pearl Guide aims to develop into a travel platform that supports:
+
+- Personalized Sri Lankan travel planning
+- Destination discovery and travel inspiration
+- Travel service and booking management
+- Secure user authentication
+- Interactive maps and location-based exploration
+- AI-assisted itinerary recommendations
+- Dedicated traveler and administrator experiences
+
+These goals will be implemented and integrated progressively as development continues.
+
+## 🔒 Security
+
+- Keep secret credentials and API keys in environment variables.
+- Do not commit `.env` files containing real secrets.
+- Validate user input on the server.
+- Implement appropriate authentication and authorization before deploying protected features.
+- Use secure payment provider integrations for any real transactions.
+
+## 📌 Development Status
+
+Pearl Guide is an ongoing web application project. The frontend provides the main travel discovery and planning interfaces, while backend services and integrations depend on the current implementation stage.
+
+## 👩‍💻 Author
+
+**Nausha Thennakoon**
+
+GitHub: [@naushithennakoon14-bit](https://github.com/naushithennakoon14-bit)
 
 ---
 
-## 🌟 Implemented Pages (Phase 1)
-1. **Home (`/`)**: Cinematic hero, multi-filter search widget, signature Ceylon experiences, featured destinations, AI teaser, verified traveler dispatches, responsive footer.
-2. **Explore Destinations (`/destinations`)**: Faceted multi-region and category filtering, search input, sorting, empty states.
-3. **Destination Details (`/destinations/:id`)**: High-res imagery gallery, quick logistics specs, 4 interactive tabs (Overview, Key Highlights, Native Travel Secrets, Climate & Monsoons), direct tour booking button.
-4. **AI Trip Planner (`/planner`)**: Dynamic trip synthesizer with customizable duration (3-14 days), travel focus, group type, travel pace, comfort tier, interactive loading states, and day-by-day itinerary breakdown.
-5. **Travel Services (`/services`)**: Certified private chauffeurs, scenic highland blue train passes, VIP 4x4 leopard safaris, authentic Ayurveda wellness retreats, and pelagic blue whale charters.
-6. **Login & Register (`/auth`)**: Tabbed authentication view with one-click demo credentials switcher (Traveler & Admin personas).
-7. **User Dashboard (`/dashboard`)**: Welcome banner, trip metrics, active itinerary status, saved destinations quick-view, seasonal Sri Lanka travel advisory.
-8. **My Trips & Saved Destinations (`/my-trips`)**: Dual-tab view for managing custom day-by-day itineraries (with print/export action) and bookmarked destination cards.
-9. **Booking & Checkout (`/checkout`)**: Itemized price calculations (chauffeur fare, park tickets, eco-conservation levy), passenger details form, payment method selector, test-mode advisory, and confirmation modal.
-10. **Admin Dashboard (`/admin`)**: Metric KPI tiles, live destination catalog with search and "Add Landmark" modal, booking inquiries queue, and AI route telemetry.
+*Discover Sri Lanka. Create your journey. Experience Ceylon.*
